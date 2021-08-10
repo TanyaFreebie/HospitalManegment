@@ -1,23 +1,21 @@
 package com.company.objects;
 
-public class Patient {
+public class Doctor {
 
     private int id;
     private String name;
     private String surname;
-    private int doctorID;
-    private int diagnosisID;
+    private String speciality;
 
-    public Patient(){
+    public Doctor(){
 
     }
 
-    public Patient(int id, String name, String surname, int doctorID, int diagnosisID) {
+    public Doctor(int id, String name, String surname, String speciality) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.doctorID = doctorID;
-        this.diagnosisID = diagnosisID;
+        this.speciality = speciality;
     }
 
     public int getId() {
@@ -44,19 +42,11 @@ public class Patient {
         this.surname = surname;
     }
 
-    public int getDoctorID() {
-        return doctorID;
+    public String getSpeciality() {
+        return speciality;
     }
 
-    public void setDoctorID(int doctorID) {
-        this.doctorID = doctorID;
-    }
-
-    public int getDiagnosisID() {
-        return diagnosisID;
-    }
-
-    public void setDiagnosisID(int diagnosisID) {
-        this.diagnosisID = diagnosisID;
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
     }
 }
