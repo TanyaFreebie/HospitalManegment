@@ -36,7 +36,7 @@ public class PatientController {
             ps.execute();
             System.out.println("Patient added to table");
 
-            System.out.println("Is doctor assigned Y/N?");
+            System.out.println("Do you wish to assign specialist to this patient Y/N?");
             String assigned;
             assigned = scanner.next().trim();
             if(assigned.equals("Y")){
@@ -61,7 +61,7 @@ public class PatientController {
         System.out.println("Do you wish to delete this data Y/N");
         String option = scanner.next().trim();
         if(option.equals("Y")){
-            System.out.println("TYpe in patient ID for conformation");
+            System.out.println("Enter patient ID for conformation");
             int id = scanner.nextInt();
            if (id == conformation){ try {
 
@@ -93,7 +93,7 @@ public class PatientController {
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
         if(option.equals("Y")){
-            System.out.println("TYpe in patient ID for conformation");
+            System.out.println("Enter patient ID for conformation");
             int id = scanner.nextInt();
             if (id == conformation){
 
