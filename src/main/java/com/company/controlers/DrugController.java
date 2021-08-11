@@ -18,9 +18,11 @@ public class DrugController {
 
         System.out.println("Enter the drug's name: ");
         String name = scanner.next();
+        System.out.println("");
 
-        System.out.println("Enter remainings in storage: ");
+        System.out.println("Enter value in storage: ");
         int storage = scanner.nextInt();
+        System.out.println("");
 
         try {
             ps = DbConnection.user().prepareStatement("INSERT INTO drugs(name, storage)" +
@@ -28,6 +30,7 @@ public class DrugController {
 
             ps.execute();
             System.out.println("New drug has been added");
+            System.out.println("");
 
             return true;
 
@@ -43,6 +46,7 @@ public class DrugController {
 
         System.out.println("Do you wish to delete this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if(option.equals("Y")){
             try {
 
@@ -50,6 +54,7 @@ public class DrugController {
                 ps.execute();
 
                 System.out.println("successfully removed to database");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -58,6 +63,7 @@ public class DrugController {
 
         } else{
             System.out.println("Data remained unchanged");
+            System.out.println("");
         }
 
 
@@ -69,27 +75,31 @@ public class DrugController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if(option.equals("Y")){
 
                 System.out.println("Enter edited name");
                 String update = scanner.next().trim();
+            System.out.println("");
 
-                try {
+            try {
 
                     ps = DbConnection.user().prepareStatement("UPDATE drugs SET name = '"+ update +"' WHERE id =" + id);
                     ps.execute();
 
 
                     System.out.println("successfully updated");
+                System.out.println("");
 
 
-                } catch (Exception e) {
+            } catch (Exception e) {
                     e.printStackTrace();
 
                 }
 
         } else{
             System.out.println("Drugs data remains unchanged");
+            System.out.println("");
         }
 
     }
@@ -100,26 +110,30 @@ public class DrugController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if(option.equals("Y")){
 
                 System.out.println("Enter edited value");
                 int update = scanner.nextInt();
+            System.out.println("");
 
-                try {
+            try {
 
                     ps = DbConnection.user().prepareStatement("UPDATE drugs SET storage = "+ update +" WHERE id =" + id);
                     ps.execute();
 
 
                     System.out.println("successfully updated");
+                System.out.println("");
 
 
-                } catch (Exception e) {
+            } catch (Exception e) {
                     e.printStackTrace();
                 }
 
         } else{
             System.out.println("Drugs data remains unchanged");
+            System.out.println("");
         }
 
     }
@@ -129,11 +143,10 @@ public class DrugController {
 
         System.out.println("Enter the drug's id: ");
         int id = scanner.nextInt();
-
-
+        System.out.println("");
 
         try {
-            ps = DbConnection.user().prepareStatement("SELECT * FROM drugs WHERE name =" + id);
+            ps = DbConnection.user().prepareStatement("SELECT * FROM drugs WHERE id =" + id);
             rs = ps.executeQuery();
 
             System.out.println("id \t  Name  \t Storage ");
@@ -156,6 +169,7 @@ public class DrugController {
 
 
                 System.out.println(drugsID + " \t " + name + " \t " + storage);
+                System.out.println("");
             }
             return drug;
 

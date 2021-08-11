@@ -15,14 +15,18 @@ public class DoctorController {
 
     public static boolean addNewDoctor() {
 
+
         System.out.println("Enter the doctor's name: ");
         String name = scanner.next();
+        System.out.println("");
 
         System.out.println("Enter the doctor's surname: ");
         String surname = scanner.next();
+        System.out.println("");
 
         System.out.println("Enter the doctor's speciality: ");
         String speciality = scanner.next();
+        System.out.println("");
 
 
         try {
@@ -31,6 +35,7 @@ public class DoctorController {
 
             ps.execute();
             System.out.println("New doctor has been added");
+            System.out.println("");
 
             return true;
 
@@ -46,6 +51,7 @@ public class DoctorController {
 
         System.out.println("Do you wish to delete this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if (option.equals("Y")) {
 
             try {
@@ -53,6 +59,7 @@ public class DoctorController {
                 ps.execute();
 
                 System.out.println("successfully removed to database");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -62,6 +69,7 @@ public class DoctorController {
 
         } else {
             System.out.println("Patient remained in database");
+            System.out.println("");
         }
 
 
@@ -73,11 +81,13 @@ public class DoctorController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if (option.equals("Y")) {
 
 
             System.out.println("Enter edited name");
             String update = scanner.next().trim();
+            System.out.println("");
 
 
             try {
@@ -87,6 +97,7 @@ public class DoctorController {
 
 
                 System.out.println("successfully updated");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -97,6 +108,7 @@ public class DoctorController {
 
         } else {
             System.out.println("Doctors data remains unchanged");
+            System.out.println("");
         }
 
     }
@@ -107,11 +119,13 @@ public class DoctorController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if (option.equals("Y")) {
 
 
             System.out.println("Enter edited surname");
             String update = scanner.next().trim();
+            System.out.println("");
 
 
             try {
@@ -121,6 +135,7 @@ public class DoctorController {
 
 
                 System.out.println("Successfully updated");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -131,6 +146,7 @@ public class DoctorController {
 
         } else {
             System.out.println("Doctors data remains unchanged");
+            System.out.println("");
         }
     }
 
@@ -140,11 +156,13 @@ public class DoctorController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if (option.equals("Y")) {
 
 
             System.out.println("Enter edited speciality");
             String update = scanner.next().trim();
+            System.out.println("");
 
 
             try {
@@ -154,6 +172,7 @@ public class DoctorController {
 
 
                 System.out.println("Successfully updated");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -168,18 +187,16 @@ public class DoctorController {
 
 
         System.out.println("Doctors data remains unchanged");
-    }
+            System.out.println("");
+        }
 
 }
-
-
 
     public static Doctor getDoctorById(){
 
         System.out.println("Enter the ID of the doctor: ");
         int id = scanner.nextInt();
-
-
+        System.out.println("");
 
         try {
             ps = DbConnection.user().prepareStatement("SELECT * FROM doctors WHERE id =" + id);
@@ -191,7 +208,6 @@ public class DoctorController {
             String name, surname, speciality;
             Doctor doctor = new Doctor();
 
-
             while(rs.next()){
 
                 doctorsID = rs.getInt("id");
@@ -202,21 +218,16 @@ public class DoctorController {
 
                doctor.setId(doctorsID);
 
-
                 System.out.println(doctorsID + " \t " + name + " \t " + surname + " \t\t " + speciality);
+                System.out.println("");
             }
             return doctor;
-
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             return null;
         }
 
-
-
     }
-
-
 
 }

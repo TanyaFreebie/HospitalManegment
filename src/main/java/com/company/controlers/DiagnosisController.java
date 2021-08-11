@@ -18,9 +18,11 @@ public class DiagnosisController {
 
         System.out.println("Enter the diagnosis short label: ");
         String name = scanner.next();
+        System.out.println("");
 
         System.out.println("Enter description: ");
         String description = scanner.next().trim();
+        System.out.println("");
 
         try {
             ps = DbConnection.user().prepareStatement("INSERT INTO diagnosis(name, description)" +
@@ -28,6 +30,7 @@ public class DiagnosisController {
 
             ps.execute();
             System.out.println("New diagnosis has been added");
+            System.out.println("");
 
             return true;
 
@@ -43,6 +46,7 @@ public class DiagnosisController {
 
         System.out.println("Do you wish to delete this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if(option.equals("Y")){
             try {
 
@@ -50,6 +54,7 @@ public class DiagnosisController {
                 ps.execute();
 
                 System.out.println("successfully removed to database");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -58,6 +63,7 @@ public class DiagnosisController {
 
         } else{
             System.out.println("Data remained unchanged");
+            System.out.println("");
         }
 
 
@@ -69,10 +75,12 @@ public class DiagnosisController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if(option.equals("Y")){
 
-            System.out.println("Enter edited short label");
+            System.out.println("Enter edited short description");
             String update = scanner.next().trim();
+            System.out.println("");
 
             try {
 
@@ -81,6 +89,7 @@ public class DiagnosisController {
 
 
                 System.out.println("successfully updated");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -89,7 +98,8 @@ public class DiagnosisController {
             }
 
         } else{
-            System.out.println("diagnosiss data remains unchanged");
+            System.out.println("diagnosis data remains unchanged");
+            System.out.println("");
         }
 
     }
@@ -100,10 +110,12 @@ public class DiagnosisController {
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
+        System.out.println("");
         if(option.equals("Y")){
 
             System.out.println("Enter edited description");
             String update = scanner.next().trim();
+            System.out.println("");
 
             try {
 
@@ -112,6 +124,7 @@ public class DiagnosisController {
 
 
                 System.out.println("successfully updated");
+                System.out.println("");
 
 
             } catch (Exception e) {
@@ -120,6 +133,7 @@ public class DiagnosisController {
 
         } else{
             System.out.println("data remains unchanged");
+            System.out.println("");
         }
 
     }
@@ -129,11 +143,12 @@ public class DiagnosisController {
 
         System.out.println("Enter the diagnosis's id: ");
         int id = scanner.nextInt();
+        System.out.println("");
 
 
 
         try {
-            ps = DbConnection.user().prepareStatement("SELECT * FROM diagnosis WHERE name =" + id);
+            ps = DbConnection.user().prepareStatement("SELECT * FROM diagnosis WHERE id =" + id);
             rs = ps.executeQuery();
 
             System.out.println("id \t  Name  \t description ");
@@ -153,6 +168,7 @@ public class DiagnosisController {
 
 
                 System.out.println(diagnosisID + " \t " + name + " \t " + description);
+                System.out.println("");
             }
             return diagnosis;
 
