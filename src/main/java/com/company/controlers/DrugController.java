@@ -128,15 +128,15 @@ public class DrugController {
     public static Drug getDrugById(){
 
         System.out.println("Enter the drug's drugs: ");
-        int drugs = scanner.nextInt();
+        int id = scanner.nextInt();
 
 
 
         try {
-            ps = DbConnection.user().prepareStatement("SELECT * FROM drugs WHERE drugs =" + drugs);
+            ps = DbConnection.user().prepareStatement("SELECT * FROM drugs WHERE drugs =" + id);
             rs = ps.executeQuery();
 
-            System.out.println("drugs \t  Name  \t Storage ");
+            System.out.println("id \t  Name  \t Storage ");
 
             int drugsID, storage;
             String name;
@@ -145,7 +145,7 @@ public class DrugController {
 
             while(rs.next()){
 
-                drugsID = rs.getInt("drugs");
+                drugsID = rs.getInt("id");
                 
 
                 name = rs.getString("name");

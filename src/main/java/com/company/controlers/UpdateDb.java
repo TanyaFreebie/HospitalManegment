@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class UpdateDb {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private static PreparedStatement ps;
     private static ResultSet rs;
 
@@ -51,32 +51,43 @@ public class UpdateDb {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("What would you like to do now?");
-        System.out.println("1. Edit name");
-        System.out.println("2. Edit surname");
-        System.out.println("3. Assign new doctor");
-        System.out.println("4. Add diagnosis");
-        System.out.println("5. Add sign out date");
+        System.out.println("1. Add new patient");
+        System.out.println("2. Edit name");
+        System.out.println("3. Edit surname");
+        System.out.println("4. Assign new doctor");
+        System.out.println("5. Add patients diagnosis");
+        System.out.println("6. Add patient admissions");
+        System.out.println("7. Add sign out date");
+        System.out.println("8. Delete patient from database");
 
         System.out.println("Select an option");
         int option = scanner.nextInt();
 
         switch (option) {
             case 1:
-                PatientController.editPatientName();
+             PatientController.addNewPatient();
                 break;
             case 2:
-                PatientController.editPatientSurname();
+                PatientController.editPatientName();
                 break;
             case 3:
-                PatientController.assignSpecialist();
+               PatientController.editPatientSurname();
                 break;
             case 4:
-
+                PatientController.assignSpecialist();
                 break;
             case 5:
-                PatientController.dischargeFromHospital();
-                break;
 
+                break;
+            case 6:
+
+                break;
+            case 7:
+PatientController.dischargeFromHospital();
+                break;
+            case 8:
+                PatientController.deletePatient();
+                break;
             default:
                 System.out.println("Invalid option");
 

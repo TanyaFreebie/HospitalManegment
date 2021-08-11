@@ -5,12 +5,16 @@ import com.company.controlers.DoctorController;
 import com.company.controlers.DrugController;
 import com.company.controlers.PatientController;
 import com.company.controlers.UpdateDb;
+import com.company.dbhelper.DbConnection;
 import com.company.objects.Doctor;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Main {
     public static void main(String[] args){
+        PreparedStatement ps;
 
-///Need to update all conformation in Doctors and Patients controllers
         //find a way to add a recursion if there was mistake and end recursion on command
 
 
@@ -18,8 +22,17 @@ public class Main {
 
         //add users access to menu after login conformation
 
-        UpdateDb.mainMenu();
 
+        //Hardcoding on filling up database
+//        try {
+//            ps = DbConnection.user().prepareStatement("INSERT INTO drugs(name, storage)" +
+//                    "VALUES ('vitamins', " + 200 + ")");
+//
+//            ps.execute();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

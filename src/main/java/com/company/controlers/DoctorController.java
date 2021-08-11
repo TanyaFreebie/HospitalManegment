@@ -13,7 +13,7 @@ public class DoctorController {
     private static PreparedStatement ps;
     private static ResultSet rs;
 
-    public static boolean addNewDoctor(){
+    public static boolean addNewDoctor() {
 
         System.out.println("Enter the doctor's name: ");
         String name = scanner.next();
@@ -25,11 +25,9 @@ public class DoctorController {
         String speciality = scanner.next();
 
 
-
-
         try {
             ps = DbConnection.user().prepareStatement("INSERT INTO doctors(name, surname, speciality)" +
-                    "VALUES ('" + name + "', '" + surname + "' , '" +  speciality + "')");
+                    "VALUES ('" + name + "', '" + surname + "' , '" + speciality + "')");
 
             ps.execute();
             System.out.println("New doctor has been added");
@@ -42,17 +40,15 @@ public class DoctorController {
         }
     }
 
-    public static void deleteDoctor(){
+    public static void deleteDoctor() {
 
-        int conformation = getDoctorById().getId();
+        int id = getDoctorById().getId();
 
         System.out.println("Do you wish to delete this data Y/N");
         String option = scanner.next().trim();
-        if(option.equals("Y")){
-            System.out.println("Enter doctor's ID for conformation");
-            int id = scanner.nextInt();
-            if (id == conformation){ try {
+        if (option.equals("Y")) {
 
+            try {
                 ps = DbConnection.user().prepareStatement("DELETE FROM doctors WHERE id = " + id);
                 ps.execute();
 
@@ -62,135 +58,119 @@ public class DoctorController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            } else {
-                System.out.println("Conformation failed. Try again");
 
-            }
 
-        } else{
+        } else {
             System.out.println("Patient remained in database");
         }
 
 
     }
 
-    public static void editDoctorsName(){
+    public static void editDoctorsName() {
 
-        int conformation = getDoctorById().getId();
+        int id = getDoctorById().getId();
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
-        if(option.equals("Y")){
-            System.out.println("Enter doctors ID for conformation");
-            int id = scanner.nextInt();
-            if (id == conformation){
-
-                System.out.println("Enter edited name");
-                String update = scanner.next().trim();
+        if (option.equals("Y")) {
 
 
-
-                try {
-
-                    ps = DbConnection.user().prepareStatement("UPDATE doctors SET name = '"+ update +"' WHERE id =" + id);
-                    ps.execute();
+            System.out.println("Enter edited name");
+            String update = scanner.next().trim();
 
 
-                    System.out.println("successfully updated");
+            try {
+
+                ps = DbConnection.user().prepareStatement("UPDATE doctors SET name = '" + update + "' WHERE id =" + id);
+                ps.execute();
 
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+                System.out.println("successfully updated");
 
-                }
-            } else {
-                System.out.println("Conformation failed. Try again");
+
+            } catch (Exception e) {
+                e.printStackTrace();
 
             }
 
-        } else{
+
+        } else {
             System.out.println("Doctors data remains unchanged");
         }
 
     }
 
-    public static void editDoctorsSurname(){
+    public static void editDoctorsSurname() {
 
-        int conformation = getDoctorById().getId();
+        int id = getDoctorById().getId();
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
-        if(option.equals("Y")){
-            System.out.println("Enter doctors ID for conformation");
-            int id = scanner.nextInt();
-            if (id == conformation){
-
-                System.out.println("Enter edited surname");
-                String update = scanner.next().trim();
+        if (option.equals("Y")) {
 
 
-
-                try {
-
-                    ps = DbConnection.user().prepareStatement("UPDATE doctors SET surname = '"+ update +"' WHERE id =" + id);
-                    ps.execute();
+            System.out.println("Enter edited surname");
+            String update = scanner.next().trim();
 
 
-                    System.out.println("Successfully updated");
+            try {
+
+                ps = DbConnection.user().prepareStatement("UPDATE doctors SET surname = '" + update + "' WHERE id =" + id);
+                ps.execute();
 
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+                System.out.println("Successfully updated");
 
-                }
-            } else {
-                System.out.println("Conformation failed. Try again");
+
+            } catch (Exception e) {
+                e.printStackTrace();
 
             }
 
-        } else{
+
+        } else {
             System.out.println("Doctors data remains unchanged");
         }
     }
 
-    public static void editDoctorsSpeciality(){
+    public static void editDoctorsSpeciality() {
 
-        int conformation = getDoctorById().getId();
+        int id = getDoctorById().getId();
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
-        if(option.equals("Y")){
-            System.out.println("Enter doctors ID for conformation");
-            int id = scanner.nextInt();
-            if (id == conformation){
-
-                System.out.println("Enter edited speciality");
-                String update = scanner.next().trim();
+        if (option.equals("Y")) {
 
 
-
-                try {
-
-                    ps = DbConnection.user().prepareStatement("UPDATE doctors SET speciality = '"+ update +"' WHERE id =" + id);
-                    ps.execute();
+            System.out.println("Enter edited speciality");
+            String update = scanner.next().trim();
 
 
-                    System.out.println("Successfully updated");
+            try {
+
+                ps = DbConnection.user().prepareStatement("UPDATE doctors SET speciality = '" + update + "' WHERE id =" + id);
+                ps.execute();
 
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+                System.out.println("Successfully updated");
 
-                }
-            } else {
-                System.out.println("Conformation failed. Try again");
+
+            } catch (Exception e) {
+                e.printStackTrace();
 
             }
 
-        } else{
-            System.out.println("Doctors data remains unchanged");
-        }
+
+        
+
+    } else{
+
+
+        System.out.println("Doctors data remains unchanged");
     }
+
+}
 
 
 

@@ -58,14 +58,12 @@ public class PatientController {
 
         public static void deletePatient(){
 
-            int conformation = getPatientById().getId();
+            int id = getPatientById().getId();
 
             System.out.println("Do you wish to delete this data Y/N");
             String option = scanner.next().trim();
             if(option.equals("Y")){
-                System.out.println("Enter patient ID for conformation");
-                int id = scanner.nextInt();
-               if (id == conformation){ try {
+   try {
 
                     ps = DbConnection.user().prepareStatement("DELETE FROM patients WHERE id = " + id);
                     ps.execute();
@@ -76,10 +74,7 @@ public class PatientController {
                 } catch (Exception e) {
                    e.printStackTrace();
                }
-               } else {
-                   System.out.println("Conformation failed. Try again");
-
-                }
+   
 
             } else{
                 System.out.println("Patient remained in database");
@@ -90,14 +85,12 @@ public class PatientController {
 
         public static void editPatientName(){
 
-            int conformation = getPatientById().getId();
+            int id = getPatientById().getId();
 
             System.out.println("Do you wish to edit this data Y/N");
             String option = scanner.next().trim();
             if(option.equals("Y")){
-                System.out.println("Enter patient ID for conformation");
-                int id = scanner.nextInt();
-                if (id == conformation){
+
 
                     System.out.println("Enter edited name");
                     String update = scanner.next().trim();
@@ -117,10 +110,7 @@ public class PatientController {
                         e.printStackTrace();
 
                     }
-                } else {
-                    System.out.println("Conformation failed. Try again");
 
-                }
 
             } else{
                 System.out.println("Patient data remains unchanged");
@@ -130,14 +120,12 @@ public class PatientController {
 
         public static void editPatientSurname(){
 
-            int conformation = getPatientById().getId();
+            int id = getPatientById().getId();
 
             System.out.println("Do you wish to edit this data Y/N");
             String option = scanner.next().trim();
             if(option.equals("Y")){
-                System.out.println("Enter patient ID for conformation");
-                int id = scanner.nextInt();
-                if (id == conformation){
+
 
                     System.out.println("Enter edited surname");
                     String update = scanner.next().trim();
@@ -157,10 +145,9 @@ public class PatientController {
                         e.printStackTrace();
 
                     }
-                } else {
-                    System.out.println("Conformation failed. Try again");
 
-                }
+
+                
 
             } else{
                 System.out.println("Patient data remains unchanged");
@@ -168,23 +155,19 @@ public class PatientController {
         }
 
     public static void assignSpecialist() {
-        int conformation = getPatientById().getId();
+        int id = getPatientById().getId();
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
         if (option.equals("Y")) {
-            System.out.println("Enter patient ID for conformation");
-            int id = scanner.nextInt();
-            if (id == conformation) {
+            
                 System.out.println("Choose Specialist:");
-                int conformation1 = getDoctorById().getId();
+                int id1 = getDoctorById().getId();
 
                 System.out.println("do you wish to assign this specialist Y/N");
                 String option1 = scanner.next().trim();
                 if (option1.equals("Y")) {
-                    System.out.println("Enter doctors ID for conformation");
-                    int id1 = scanner.nextInt();
-                    if (id1 == conformation1) {
+
 
                         try {
 
@@ -199,30 +182,23 @@ public class PatientController {
                             e.printStackTrace();
 
                         }
-                    } else {
-                        System.out.println("Conformation failed. Try again");
 
-                    }
 
                 } else {
                     System.out.println("Patient data remains unchanged");
                 }
-            } else {
-                System.out.println("Conformation failed. Try again");
-            }
+
         }else {
             System.out.println("Patient data remains unchanged");
     }
 }
     public static void dischargeFromHospital(){
-        int conformation = getPatientById().getId();
+        int id = getPatientById().getId();
 
         System.out.println("Do you wish to delete this data Y/N");
         String option = scanner.next().trim();
         if(option.equals("Y")){
-            System.out.println("Enter patient ID for conformation");
-            int id = scanner.nextInt();
-            if (id == conformation){
+
                 Date date = new Date();
                 try {
 
@@ -235,10 +211,7 @@ public class PatientController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            } else {
-                System.out.println("Conformation failed. Try again");
-
-            }
+                
 
         } else{
             System.out.println("Patient remained in hospital");
