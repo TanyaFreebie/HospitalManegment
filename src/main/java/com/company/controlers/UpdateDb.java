@@ -2,7 +2,6 @@ package com.company.controlers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UpdateDb {
