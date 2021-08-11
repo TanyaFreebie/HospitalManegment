@@ -127,7 +127,7 @@ public class DiagnosisController {
 
     public static Diagnosis getDiagnosisById(){
 
-        System.out.println("Enter the diagnosis's diagnosis: ");
+        System.out.println("Enter the diagnosis's id: ");
         int id = scanner.nextInt();
 
 

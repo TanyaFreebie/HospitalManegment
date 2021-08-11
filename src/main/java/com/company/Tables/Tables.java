@@ -44,20 +44,19 @@ CREATE TABLE patients (
     CONSTRAINT patients_FK_1 FOREIGN KEY (diagnosis_id) REFERENCES diagnosis(id) ON DELETE SET NULL ON UPDATE CASCADE);
 
 )
-     ++++ADMISSIONS++++
+     ++++ADMISSIONS++++//added diagnosis!
 
  CREATE TABLE admissions (
 	date VARCHAR(50) NOT NULL,
 	patient_id INT NOT NULL,
+	diagnosis_id INT NOT NULL,
 	drug_id INT NOT NULL,
 	doctors_id INT NULL,
-	dose_per_day INT NOT NULL,
-	single_dose INT NOT NULL,
 	CONSTRAINT admissions_pk PRIMARY KEY (date, patient_id),
 	CONSTRAINT admissions_FK FOREIGN KEY (drug_id) REFERENCES drug(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	CONSTRAINT admissions_FK_1 FOREIGN KEY (doctors_id) REFERENCES doctors(id) ON DELETE SET NULL ON UPDATE CASCADE);
 
 ALTER TABLE admissions
-ADD FOREIGN KEY (doctors_id) REFERENCES doctors(id) ON DELETE SET NULL ON UPDATE CASCADE);
+ADD FOREIGN KEY (diagnosis_id) REFERENCES diagnosis(id) ON DELETE SET CASCADE ON UPDATE CASCADE);
      */
 }

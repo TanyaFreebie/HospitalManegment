@@ -154,15 +154,15 @@ public class PatientController {
             }
         }
 
-    public static void assignSpecialist() {
+    public static void assignDiagnosis() {
         int id = getPatientById().getId();
 
         System.out.println("Do you wish to edit this data Y/N");
         String option = scanner.next().trim();
         if (option.equals("Y")) {
             
-                System.out.println("Choose Specialist:");
-                int id1 = getDoctorById().getId();
+                System.out.println("Choose diagnosis:");
+                int id1 = DiagnosisController.getDiagnosisById().getId();
 
                 System.out.println("do you wish to assign this specialist Y/N");
                 String option1 = scanner.next().trim();
@@ -171,7 +171,7 @@ public class PatientController {
 
                         try {
 
-                            ps = DbConnection.user().prepareStatement("UPDATE patients SET doctors_id = " + id1 + " WHERE id =" + id);
+                            ps = DbConnection.user().prepareStatement("UPDATE patients SET diagnosis_id = " + id1 + " WHERE id =" + id);
                             ps.execute();
 
 
@@ -192,6 +192,46 @@ public class PatientController {
             System.out.println("Patient data remains unchanged");
     }
 }
+
+    public static void assignSpecialist() {
+        int id = getPatientById().getId();
+
+        System.out.println("Do you wish to edit this data Y/N");
+        String option = scanner.next().trim();
+        if (option.equals("Y")) {
+
+            System.out.println("Choose Specialist:");
+            int id1 = getDoctorById().getId();
+
+            System.out.println("do you wish to assign this specialist Y/N");
+            String option1 = scanner.next().trim();
+            if (option1.equals("Y")) {
+
+
+                try {
+
+                    ps = DbConnection.user().prepareStatement("UPDATE patients SET doctors_id = " + id1 + " WHERE id =" + id);
+                    ps.execute();
+
+
+                    System.out.println("Successfully updated");
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+
+
+            } else {
+                System.out.println("Patient data remains unchanged");
+            }
+
+        }else {
+            System.out.println("Patient data remains unchanged");
+        }
+    }
+
     public static void dischargeFromHospital(){
         int id = getPatientById().getId();
 
