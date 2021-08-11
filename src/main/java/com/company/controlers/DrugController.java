@@ -127,13 +127,13 @@ public class DrugController {
 
     public static Drug getDrugById(){
 
-        System.out.println("Enter the drug's drugs: ");
+        System.out.println("Enter the drug's id: ");
         int id = scanner.nextInt();
 
 
 
         try {
-            ps = DbConnection.user().prepareStatement("SELECT * FROM drugs WHERE drugs =" + id);
+            ps = DbConnection.user().prepareStatement("SELECT * FROM drugs WHERE name =" + id);
             rs = ps.executeQuery();
 
             System.out.println("id \t  Name  \t Storage ");

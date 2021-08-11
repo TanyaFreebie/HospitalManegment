@@ -139,19 +139,15 @@ public class DiagnosisController {
             System.out.println("id \t  Name  \t description ");
 
             int diagnosisID;
-            String description;
-            String name;
+            String description, name;
             Diagnosis diagnosis = new Diagnosis();
 
 
             while(rs.next()){
 
                 diagnosisID = rs.getInt("id");
-
-
                 name = rs.getString("name");
                 description = rs.getString("description");
-
 
                 diagnosis.setId(diagnosisID);
 
